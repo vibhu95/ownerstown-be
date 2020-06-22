@@ -13,8 +13,8 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -22,9 +22,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var whitelist = ['search-tweets.netlify.app']
+var whitelist = ['search-tweets.netlify.app','localhost:3000']
 var corsOptions = {
   origin: function (origin, callback) {
+    console.log('origin ::: ',origin);
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
