@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var whitelist = ['search-tweets.netlify.app','localhost:3000']
+var whitelist = ['search-tweets.netlify.app','https://search-tweets.netlify.app','localhost:3000']
 var corsOptions = {
   origin: function (origin, callback) {
     console.log('origin ::: ',origin);
